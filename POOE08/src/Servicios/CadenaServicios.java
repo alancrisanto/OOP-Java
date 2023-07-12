@@ -7,11 +7,15 @@ package Servicios;
 
 import Entidad.Cadena;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Crisvall
  */
 public class CadenaServicios {
+
+    Scanner sc = new Scanner(System.in);
     
     public void mostrarVocales(Cadena cadena ){
         int vocal = 0;
@@ -49,5 +53,53 @@ public class CadenaServicios {
         System.out.println("El caracter " + letra + " se repite " + count + " veces");
     }
     
-    
+    public void compararLongitud (String frase, Cadena cadena){
+        int long1 = frase.length();
+        int long2 = cadena.getLongitud();
+        
+        System.out.println("La frase tiene " + long1 + " caracteres" );
+        System.out.println("La cadena tiene " + long2 + " caracteres" );
+    }
+
+    public void unirFrases(Cadena frase) {
+        System.out.println("Ingresa una nueva frase ");
+        String newFrase = sc.nextLine();
+        System.out.println("La nueva frase es: " + newFrase + " " + frase.getFrase());
+    }
+
+    public void reemplazar(Cadena frase){
+        System.out.println("Ingresa una letra o simbolo para reemplazar");
+        char letra = sc.nextLine().charAt(0);
+        char [] array = frase.getFrase().toCharArray();
+
+        for (int i = 0; i < array.length; i++) {
+            if (Character.toLowerCase(array[i]) == 'a')  {
+                array[i] = letra;
+            }
+        }
+
+        String nuevaFrase = new String(array);
+
+        System.out.println("La frase es: " + nuevaFrase);
+    }
+
+    public void contiene(Cadena frase){
+        System.out.println("Ingresa una letra a verificar");
+        char letra = sc.nextLine().charAt(0);
+        char [] array = frase.getFrase().toCharArray();
+        int count = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (Character.toLowerCase(array[i]) == 'a')  {
+                count += 1;
+            }
+        }
+
+        if(count > 0) {
+            System.out.println("La letra ingresa se encuentra en la frase");
+        } else {
+            System.out.println("La letra no se encuentra en la frase");
+        }
+    }
 }
+

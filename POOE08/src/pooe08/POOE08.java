@@ -49,7 +49,19 @@ public class POOE08 {
         String letra = sc.nextLine();
         cservicios.vecesRepetido(letra, frase);
         
-        
+        // comparar Longitud
+        System.out.println("Ingrese una frase");
+        String nuevaFrase = sc.next();
+        cservicios.compararLongitud(nuevaFrase, frase);
+
+        // Unir frases
+        cservicios.unirFrases(frase);
+
+        // Reemplazar
+        cservicios.reemplazar(frase);
+
+        // Contiene
+        cservicios.contiene(frase);
     }
     
 }
